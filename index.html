@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>shvpnd</title>
+    <link rel="icon" type="image/x-icon" href="pre.jpeg">
+    <style>
+        body {
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .microprocessor-image {
+            width: 200px;
+            float: right;
+            margin-left: 20px;
+        }
+
+        .gif-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                margin-left: 100px;
+                margin-right: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center; /* Center text in header */
+            }
+
+            .qr-code {
+                margin-top: 10px; /* Add some space above the QR code */
+            }
+
+            .microprocessor-image {
+                float: none;
+                display: block;
+                margin: 20px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .qr-code {
+                width: 80px;
+                height: 80px;
+            }
+
+            .microprocessor-image {
+                width: 150px;
+            }
+        }
+
+        #visitor-counter-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #marquee-container {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        #marquee-text {
+            font-size: 12px;
+            color: rgb(228, 228, 228);
+        }
+
+        .nav-links {
+             position: fixed;
+             bottom: 20px; /* Distance from the bottom */
+             left: 20px;   /* Distance from the left */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>shvpnd</h1>
+        <img src="pre.jpeg" alt="meh" class="qr-code" onclick="playAudio()" />
+    </header>
+    <main>
+        <p>
+            hi im shvpnd, a rookie dev and an electronics engineering student. i
+            like integrated circuit chips and microprocessors, they fascinate me.
+        </p>
+
+        <p>
+            i use a decade old handmedown laptop(mitsubishi) with 4th gen intel
+            inside. it has a gpu, intel mobile 4 series chipset. i use arch btw and
+            debian, i find the customization options really appealing and socially
+            unfit. and i love croissants, the flaky texture and buttery taste is
+            just shit. im a very cool person btw. you can reach me at shvpnd@proton.me(girls only).
+        </p>
+
+        <div class="gif-container">
+            <img src="gif1.gif" alt="GIF 1" id="gif1" onclick="toggleGifs()" />
+            <img src="gif2.gif" alt="GIF 2" id="gif2" style="display: none" onclick="toggleGifs()" />
+        </div>
+
+        <div class="nav-links">
+          <a href="blog.html">blog</a>
+          <a href="#fokme">say hi</a>
+          <a href="#projects">work</a>
+      </div>
+
+    </main>
+
+    <audio id="audio-player">
+        <source src="alarm.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function playAudio() {
+            const audioPlayer = document.getElementById("audio-player");
+            audioPlayer.play();
+        }
+
+        function toggleGifs() {
+            const gif1 = document.getElementById("gif1");
+            const gif2 = document.getElementById("gif2");
+            
+            if (gif1.style.display === "none") {
+                gif1.style.display = "inline-block";
+                gif2.style.display = "none";
+            } else {
+                gif1.style.display = "none";
+                gif2.style.display = "inline-block";
+            }
+        }
+
+        // Visitor Counter Functionality
+        document.addEventListener("DOMContentLoaded", () => {
+            const visitorCounter = document.getElementById("visitor-counter");
+
+            const incrementVisitorCount = () => {
+                const currentCount = parseInt(visitorCounter.textContent, 10);
+                visitorCounter.textContent = currentCount + 1;
+            };
+
+            incrementVisitorCount();
+        });
+    </script>
+
+    <div id="visitor-counter-container">
+        <div id="visitor-counter">0</div>
+    </div>
+
+    <div id="marquee-container">
+        <marquee
+            id="marquee-text"
+            behavior="scroll"
+            direction="left"
+            scrollamount="5"
+        >yeah very cool now suck my D yeah very cool now suck my D yeah very
+        cool now suck my D yeah very cool now suck my D yeah very cool now suck
+        my D yeah very cool now suck my D yeah very cool now suck my D yeah very
+        cool now suck my D yeah very cool now suck my D</marquee>
+    </div>
+</body>
+</html>
