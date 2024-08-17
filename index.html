@@ -149,7 +149,6 @@
         <source src="alarm.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
-
     <script>
         function playAudio() {
             const audioPlayer = document.getElementById("audio-player");
@@ -168,23 +167,7 @@
                 gif2.style.display = "inline-block";
             }
         }
-
-        // Visitor Counter Functionality
-        document.addEventListener("DOMContentLoaded", () => {
-            const visitorCounter = document.getElementById("visitor-counter");
-
-            const incrementVisitorCount = () => {
-                const currentCount = parseInt(visitorCounter.textContent, 10);
-                visitorCounter.textContent = currentCount + 1;
-            };
-
-            incrementVisitorCount();
-        });
     </script>
-
-    <div id="visitor-counter-container">
-        <div id="visitor-counter">0</div>
-    </div>
 
     <div id="marquee-container">
         <marquee
