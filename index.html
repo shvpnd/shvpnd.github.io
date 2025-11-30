@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>shvpnd</title>
+<link rel="icon" href="./img/favicon.png">
+</head>
+<body>
+<h1 id="tit">shvpnd</h1>
+<nav>
+  <a href="#" onclick="go('home')">[home]</a>
+  <a href="#" onclick="go('proj')">[projects]</a>
+  <a href="#" onclick="go('cont')">[contact]</a>
+</nav>
+
+<div style="max-width: 450px;">
+  
+  <div id="home">
+    <p>hi! i'm <strong>shivam pandey</strong>, an undergrad, majoring in ece. and i like computers of all sorts.</p>
+    <p>when i’m not hitting the books, i'm usually in de_dust2. you can reach me at <i>shvpnd@proton.me</i>.</p>
+  </div>
+
+  <div id="proj" style="display:none">
+    <p>
+      <a href="https://ondaikon.vercel.app"><strong>daikon</strong></a><br>
+      anime streaming site with simple ui. design inspiration from dsl info site.<br>
+      <a href="https://shvpnd.github.io/8085up"><strong>8085up</strong></a><br>
+      a web based simulator for intel 8085uP trainer kit. one of my uni projects.<br>
+      <a href="https://github.com/shvpnd/bos-130"><strong>bos130</strong></a><br>
+       basic operating system for raspberry pi pico.
+    </p>
+  </div>
+
+  <div id="cont" style="display:none">
+    <p>sent from a debian machine.</p>
+    <p>
+      pgp: <a href="./img/publickey.asc">ED37 5395 37B7 4C60 5500</a><br>
+      mail: <a href="mailto:shvpnd@proton.me">shvpnd@proton.me</a><br>
+      cv: <a href="./cv.pdf">download</a><br>
+      loc: IST (UTC+05:30)
+    </p>
+  </div>
+
+  <p><small>(c) <span id="yr"></span> shvpnd.</small></p>
+</div>
+
+<script>
+document.getElementById('yr').innerText = new Date().getFullYear();
+function go(id) {
+  ['home','proj','cont'].forEach(x => document.getElementById(x).style.display = x === id ? 'block' : 'none');
+  document.getElementById('tit').innerText = id === 'home' ? 'shvpnd' : (id === 'proj' ? 'projects' : 'contact');
+}
+</script>
+</body>
+</html>
